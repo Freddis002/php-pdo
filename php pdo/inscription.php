@@ -184,7 +184,7 @@ $reg = connexionBase();
 @$us_nom=$_POST["nom"];
 @$us_prenom=$_POST["prenom"];
 @$us_mail=$_POST["mail"];
-@$us_login=$_POST["login"];
+// @$us_login=$_POST["login"];
 @$us_mdp=$_POST["mdp"];
 @$us_dateinscri=$_POST["inscription"];
 @$us_derco=$_POST["connexion"];
@@ -193,7 +193,7 @@ $reg = connexionBase();
 
 
 
-$sql ="INSERT INTO  users (us_id,us_nom,us_prenom,us_mail,us_login,us_mdp,us_dateinscri,us_derco) VALUES (:id ,:nom, :prenom, :mail,:login,:mdp,:inscription,:connexion)";
+$sql ="INSERT INTO  users (us_id,us_nom,us_prenom,us_mail,us_mdp,us_dateinscri,us_derco) VALUES (:id ,:nom, :prenom, :mail, :mdp,:inscription,:connexion)";
 
 
 $stmt = $reg->prepare($sql);
@@ -202,7 +202,7 @@ $stmt->bindValue(":id",$us_id ,PDO::PARAM_STR);
 $stmt->bindValue(":nom",$us_nom,PDO::PARAM_STR);
 $stmt->bindValue(":prenom",$us_prenom,PDO::PARAM_STR);
 $stmt->bindValue(":mail",$us_mail,PDO::PARAM_STR);
-$stmt->bindValue(":login",$us_login,PDO::PARAM_STR);
+// $stmt->bindValue(":login",$us_login,PDO::PARAM_STR);
 $stmt->bindValue(":mdp",$us_mdp,PDO::PARAM_STR);
 $stmt->bindValue(":inscription",$us_dateinscri,PDO::PARAM_STR);
 $stmt->bindValue(":connexion",$us_derco,PDO::PARAM_STR);
@@ -232,7 +232,7 @@ $stmt = $reg->prepare($sql);
 
 $stmt ->bindValue(':mail',$_SESSION['us_mail'],PDO::PARAM_STR);
 $stmt ->execute();
-$resultat =$stmt->fetct();
+$resultat =$stmt->fetch();
 $mdpcorrect = password_verify($_POST['mot_de_passe'], $resultat['us_mdp']);
 
 if (!$resultat)

@@ -6,7 +6,7 @@ function connexionBase()
 
         {
                
-                $db = new PDO('mysql:host=localhost;charset=utf8;dbname=jarditou;port=3308', 'root', ''); //connexion sur WAMP
+                $db = new PDO('mysql:host=localhost;charset=utf8;dbname=jarditou;port=3306', 'root', ''); //connexion sur WAMP
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 return $db;
         } 
