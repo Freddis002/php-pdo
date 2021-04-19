@@ -129,7 +129,7 @@
         </form>
         </nav>
         <section>
-       <img src="images/promotion.jpg"class="img-fluid" alt="Responsive image"> 
+       <img src="images/promotion.jpg"class="img-fluid w-100" alt="Responsive image"> 
        </section>
 
 
